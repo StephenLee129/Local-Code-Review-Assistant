@@ -1,18 +1,16 @@
-import ollama
+from app.analyzer import analyze_code
+
+
+sample_code = """
+def divide(a, b):
+    return a / b
+"""
 
 
 def main():
-    response = ollama.chat(
-        model="qwen2.5-coder:7b",
-        messages=[
-            {
-                "role": "user",
-                "content": "Explain what a Python decorator is in two sentences."
-            }
-        ]
-    )
+    review = analyze_code(sample_code)
 
-    print(response.message.content)
+    print(review.model_dump_json(indent=2))
 
 
 if __name__ == "__main__":
