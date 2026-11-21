@@ -20,6 +20,20 @@ Review guidelines:
 - Include the approximate line number when possible.
 - If no meaningful issues exist, return an empty issues list.
 
+Code analysis requirements:
+- Trace execution paths through functions rather than evaluating
+  individual lines in isolation.
+- Check whether error conditions actually prevent subsequent
+  operations from executing.
+- Examine state mutations and verify that failed operations
+  do not incorrectly modify application state.
+- Consider invalid inputs, including negative values, zero,
+  None, and empty collections where applicable.
+- Identify clearly unused imports and variables.
+- Every reported issue must describe a consequence supported
+  by the actual code.
+- Never describe behavior that cannot occur in the provided code.
+
 Severity definitions:
 - critical: Severe vulnerabilities or failures with major impact.
 - high: Significant bugs or security problems.
